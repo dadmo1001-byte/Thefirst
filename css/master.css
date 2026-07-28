@@ -3,19 +3,24 @@
   list-style: none;
   text-decoration: none;
 }
-
+:root {
+  --main-color: orange;
+}
 body {
   font-family: "Open Sans", sans-serif;
 }
-
 /* Start Landing Page */
 .lading-page {
   position: relative;
   min-height: 100vh;
-  background-image: url(../image/anders-jilden-cYrMQA7a3Wc-unsplash.jpg);
+  background-image: url(../image/01.jpg);
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  transition: background-image 1s ease-in-out;
+  z-index: 2;
+  color: #fff;
 }
-
 .lading-page .overlay {
   background-color: rgb(39 38 38 / 66%);
   width: 100%;
@@ -23,31 +28,61 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  z-index: 0;
 }
-
 .lading-page .header-area {
   position: relative;
-  z-index: 2;
   color: #fff;
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  padding: 0 35px;
+  background-color: rgba(245, 245, 245, 0.055);
+  border-bottom: 2px solid rgba(255, 166, 0, 0.425);
+  height: 75px;
 }
-
 .lading-page .header-area .logo {
   width: 300px;
-  padding: 15px;
+  font-weight: bold;
+  font-size: 30px;
 }
-
+.lading-page .header-area .logo span {
+  color: var(--main-color);
+}
 .lading-page .header-area .links {
-  display: flex;
+  width: 100%;
+  text-align: right;
   gap: 20px;
-  padding: 15px;
 }
-
-.lading-page .header-area .links  li {
-  cursor: pointer;
+.lading-page .header-area .links li {
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: bold;
 }
-
+.lading-page .header-area .links li a {
+  color: #fff;
+  transition: 0.3s;
+} 
+.lading-page .header-area .links li a:hover, 
+.lading-page .header-area .links  a.active {
+  text-decoration: underline;
+  color: var(--main-color);
+}
+.lading-page .intoduction-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+.lading-page .intoduction-text h1 {
+  font-size: 35px;
+  color: var(--main-color);
+  margin: 0 0 10px 0;
+}
+.lading-page .intoduction-text p {
+  font-size: 20px;
+  margin: 0;
+}
 /* End Landing Page */
