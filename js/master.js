@@ -10,4 +10,4 @@ setInterval (() => {
     let randomNumber = Math.floor(Math.random() * arrImage.length);
     ladingPage.style.backgroundImage = `url("../image/${arrImage[randomNumber]}")` ;
     console.log(randomNumber);
-}, 5000)
+}, 5000) 
