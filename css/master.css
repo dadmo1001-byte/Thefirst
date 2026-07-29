@@ -5,15 +5,53 @@
 }
 :root {
   --main-color: orange;
+  --main-transition: 0.4s;
 }
 body {
   font-family: "Open Sans", sans-serif;
 }
+/* Start setting box */
+.setting-box {
+  position: fixed;
+  width: 150px;
+  background-color: #ffffff1c;
+  z-index: 100;
+  top: 0;
+  left: -150px;
+  min-height: 100vh;
+  transition: var(--main-transition);
+}
+.open {
+  left: 0;
+}
+.setting-box .toggle-setting {
+  position: absolute;
+  background-color: #fff;
+  top: 100px;
+  right: -40px;
+  text-align: center;
+  color: var(--main-color);
+  cursor: pointer;
+  border-radius: 12px;
+  transition: var(--main-transition);
+}
+.setting-box .toggle-setting i {
+  padding: 8px 0;
+  width: 35px;
+}
+.setting-box .toggle-setting:hover {
+  border-radius: 5px;
+}
+.setting-box .setting-container {
+
+}
+/* End setting box */
 /* Start Landing Page */
 .lading-page {
   position: relative;
   min-height: 100vh;
   background-image: url(../image/01.jpg);
+  background-color: #000;
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
