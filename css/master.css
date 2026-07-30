@@ -10,14 +10,20 @@
 body {
   font-family: "Open Sans", sans-serif;
 }
+.container {
+  width: 1170px;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin: auto;
+}
 /* Start setting box */
 .setting-box {
   position: fixed;
-  width: 150px;
+  width: 260px;
   background-color: #ffffff1c;
   z-index: 100;
   top: 0;
-  left: -150px;
+  left: -260px;
   min-height: 100vh;
   transition: var(--main-transition);
 }
@@ -42,8 +48,88 @@ body {
 .setting-box .toggle-setting:hover {
   border-radius: 5px;
 }
-.setting-box .setting-container {
-
+.setting-box .option-box {
+  margin: 0;
+  text-align: center;
+}
+.setting-box .top {
+  margin-top: 75px;
+}
+.setting-box .option-box h4 {
+  padding: 15px 30px;
+  font-size: 19px;
+  color: var(--main-color);
+  font-weight: bold; 
+  position: relative;
+  text-transform: capitalize;
+}
+.setting-box .option-box h4::before {
+  content: ' ';
+  position: absolute;
+  width: 30%;
+  height: 2px;
+  bottom: 0;
+  left: 50%;
+  background-color: #fff;
+  transform: translateX(-50%);
+}
+.setting-box .option-box .colors-list {
+  padding: 10px 5px; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 120px;
+  background-color: #bbb;
+  border-radius: 15px;
+}
+.setting-box .option-box .colors-list li {
+  width: 35px;
+  height: 30px;
+  border-radius: 10px;
+  margin-left: 2px;
+  border: 3px solid #bbb;
+  transition: 0.5s;
+  cursor: pointer;
+}
+.setting-box .option-box .colors-list li.active {
+  border-color: #fff;
+}
+.setting-box .option-box .colors-list li:first-child {
+  background-color: #ffa500;
+}
+.setting-box .option-box .colors-list li:nth-child(2) {
+  background-color: #c53e0d;
+}
+.setting-box .option-box .colors-list li:nth-child(3) {
+  background-color: #530440;
+}
+.setting-box .option-box .colors-list li:nth-child(4) {
+  background-color: #045c2c;
+}
+.setting-box .option-box .colors-list li:nth-child(5) {
+  background-color: #c90707;
+}
+.setting-box .random-background .yes,
+.setting-box .random-background .no {
+  display: inline-block;
+  width: 50px;
+  background-color: #009688;
+  color: #ffffff;
+  font-size: 12px;
+  cursor: pointer;
+  opacity: .5;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: var(--main-transition);
+}
+.setting-box .random-background .yes:hover,
+.setting-box .random-background .no:hover {
+  opacity: 1;
+} 
+.setting-box .random-background span.active {
+  opacity: 1;
 }
 /* End setting box */
 /* Start Landing Page */
@@ -106,6 +192,7 @@ body {
   color: var(--main-color);
 }
 .lading-page .intoduction-text {
+  width: 100%;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -124,3 +211,8 @@ body {
   margin: 0;
 }
 /* End Landing Page */
+/* Start About Us */
+.about-us {
+  
+}
+/* End About Us */
