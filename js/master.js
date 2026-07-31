@@ -10,7 +10,7 @@ if(mainColor !== null) {
 		// remove active class for All list Items
 		element.classList.remove('active');
 
-		// Add the calss active for element === local Storage Item
+		// Add   the calss active for element === local Storage Item
 		if(element.dataset.color === mainColor) {
 			// Add the active class
 			element.classList.add('active')
@@ -97,4 +97,29 @@ function randomIzeimage () {
 	}
 }
 
-randomIzeimage()
+randomIzeimage();
+
+// Select Skills Selector
+
+
+let ourSkills = document.querySelector('.skills');
+
+window.onscroll = function () {
+    let skillsOffsetTop = ourSkills.offsetTop;
+    let skillsOuterHeight = ourSkills.offsetHeight;
+    let windowHeight = this.innerHeight;
+    let windowScrollTop = this.scrollY;
+
+    // طباعة القيم لمراقبتها
+    console.log("Scroll Top:", windowScrollTop);
+    console.log("Target Point:", skillsOffsetTop + skillsOuterHeight - windowHeight);
+
+    if (windowScrollTop < (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
+		let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
+
+		// the code is not true 
+		allSkills.forEach(skill => {
+			skill.style.width = skill.dataset.progress;
+		})
+    }
+};
