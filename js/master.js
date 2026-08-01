@@ -101,25 +101,102 @@ randomIzeimage();
 
 // Select Skills Selector
 
-
 let ourSkills = document.querySelector('.skills');
+let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
 
-window.onscroll = function () {
-    let skillsOffsetTop = ourSkills.offsetTop;
-    let skillsOuterHeight = ourSkills.offsetHeight;
-    let windowHeight = this.innerHeight;
-    let windowScrollTop = this.scrollY;
+// إنشاء الـ Observer
+let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        // لو السكشن ظهر في الشاشة
+        if (entry.isIntersecting) {
+            allSkills.forEach(skill => {
+                skill.style.width = skill.dataset.progress;
+            });
+            // نوقف المراقبة بعد ما الأنيماشن يشتغل مرة واحدة
+            observer.unobserve(entry.target);
+        }
+    });
+}, {
+    threshold: 0.5 // معناه: يشتغل أول ما 30% من سكشن المهارات يظهر في الشاشة
+});
 
-    // طباعة القيم لمراقبتها
-    console.log("Scroll Top:", windowScrollTop);
-    console.log("Target Point:", skillsOffsetTop + skillsOuterHeight - windowHeight);
+// البدء في مراقبة سكشن المهارات
+observer.observe(ourSkills);
 
-    if (windowScrollTop < (skillsOffsetTop + skillsOuterHeight - windowHeight)) {
-		let allSkills = document.querySelectorAll(".skills-box .skill-progress span");
 
-		// the code is not true 
-		allSkills.forEach(skill => {
-			skill.style.width = skill.dataset.progress;
-		})
-    }
-};
+// create poupe with the image 
+let ourGallary = document.querySelectorAll(".gallary img");
+
+ourGallary.forEach(img => {
+	img.addEventListener('click', (e) => {
+
+		// create overlay element 
+		let overlay = document.createElement('div');
+
+		// Add class to overlay 
+		overlay.className = 'popup-overlay';
+
+		// Append to the overylay to the body
+		document.body.appendChild(overlay)
+
+		// create the popup div
+		let popupBox = document.createElement('div');
+
+		popupBox.className = "popup-box";
+
+		if (img.alt !== null) {
+			// create heading
+			let imageHeading = document.createElement('h3');
+
+			// create text for heading
+			let imgText = document.createTextNode(img.alt);
+
+			// append the text for the heading 
+			imageHeading.appendChild(imgText);
+
+			// append the heading to the popup box
+			popupBox.appendChild(imageHeading);
+		}
+
+		// create the image
+		let popupImage = document.createElement('img');
+
+		// create the button the close image 
+		let btn = document.createElement('button');
+		btn.textContent = "X";
+		btn.className = "btn-close";
+		// set image source
+
+		popupImage.src = img.src;
+
+		// Add to image to popup box;	
+		popupBox.appendChild(popupImage);
+		popupBox.appendChild(btn);
+
+		document.body.appendChild(popupBox);
+
+		// دي طريقة لحذف 
+		// popupBox
+
+		// // create the function close the popupBox 
+		// btn.addEventListener('click', () => {
+		// 	closePopup()
+		// })
+
+		// function closePopup () {
+		// 	popupBox.style.display = 'none';
+		// 	overlay.style.display = "none"
+		// }
+
+	})
+})
+
+document.addEventListener('click', (e) => {
+	if(e.target.className == 'btn-close') {
+		// remove current popup
+		e.target.parentNode.remove();
+
+		// remove overlay 
+		document.querySelector('.popup-overlay').remove();
+	}
+})

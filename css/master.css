@@ -5,7 +5,7 @@
 }
 :root {
   --main-color: orange;
-  --main-transition: 0.4s;
+  --main-transition: 0.5s;
 }
 body {
   font-family: "Open Sans", sans-serif;
@@ -296,3 +296,114 @@ body {
   -o-border-radius: 10px;
 }
 /* End skills */
+/* Start Gallary */
+.gallary {
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+.gallary h2 {
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: var(--main-color);
+  margin: 0 0 50px;
+}
+.gallary .image-box {
+  text-align: center;
+}
+.gallary .image-box img {
+  width: 200px;
+  padding: 5px;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  margin: 5px;
+  cursor: pointer;
+}
+.popup-overlay {
+  position: fixed;
+  background-color: rgba(0, 0, 0, .7);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000;
+}
+.popup-box {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 20px;
+  z-index: 1001;
+  border-radius: 15px;
+} 
+.popup-box h3 {
+  font-weight: bold;
+  color: var(--main-color);
+  margin: 0 0 20px;
+  text-align: center;
+}
+.popup-box img {
+  max-width: 100%;
+}
+.btn-close {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  top: -15px;
+  right: -25px;
+  transform: translateX(-50%);
+  background-color: var(--main-color);
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  cursor: pointer; 
+  transition: var(--main-transition);
+  color: black;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.btn-close:hover {
+  background-color: black;
+  color:white;
+}
+/* End Gallary */
+/* Start time line */
+.timeline {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #eee;
+}
+.timeline .timeline-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+.timeline .timeline-content::before {
+  content: ' ';
+  width: 2px;
+  height: 100%;
+  background-color: var(--main-color);
+  position: absolute;
+  left: 50%;
+  margin-left: -1px;
+  top: 0;  
+}
+.timeline .year {
+  width: 60px;
+  margin: 20px auto;
+  background-color: var(--main-color);
+  z-index: 2;
+  text-align: center;
+  padding: 5px;
+  color: #fff;
+  border-radius: 10px;
+  font-weight: bold;
+}
+/* End time line */
+
