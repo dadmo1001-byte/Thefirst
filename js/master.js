@@ -200,3 +200,76 @@ document.addEventListener('click', (e) => {
 		document.querySelector('.popup-overlay').remove();
 	}
 })
+
+// Select all pullets 
+
+const allPullets = document.querySelectorAll("nav .bullet");
+const allLinks = document.querySelectorAll(".links a")
+
+
+function scrollToSomewhere(element) {
+	element.forEach (ele => {
+		ele.addEventListener('click', (e) => {
+			e.preventDefault();
+
+			document.querySelector(ele.dataset.section).scrollIntoView({
+				behavior: "smooth"
+			})
+		})
+	});
+}
+
+scrollToSomewhere(allPullets);
+scrollToSomewhere(allLinks);
+
+let bulletSpan = document.querySelectorAll(".bullets-option span");
+let bulletCountainer = document.querySelector("nav");
+
+let localBullet = localStorage.getItem("bullets-option");
+
+if(localBullet !== null) {
+	bulletSpan.forEach(span => {
+		span.classList.remove('active')
+	})
+
+	if (localBullet === "block") {
+		bulletCountainer.style.display = "block";
+		document.querySelector(".bullets-option.yes").classList.add("active");
+	} else {
+		bulletCountainer.style.display = "none";
+		document.querySelector(".bullets-option .no").classList.add("active");
+	}
+	
+}
+// console.log(bulletSpan);
+
+bulletSpan.forEach( (span) => {
+	span.addEventListener('click', (e) => {
+		if(span.dataset.display === "yes") {
+			bulletCountainer.style.display = "block";
+			localStorage.setItem("bullets-option", "block")
+
+		} else {
+				bulletCountainer.style.display = "none";
+				localStorage.setItem("bullets-option", "none")
+		}
+
+		e.target.parentElement.querySelectorAll('.active').forEach(element => {
+			element.classList.remove('active');
+		})
+
+		e.target.classList.add('active');
+	})
+})
+
+// Reset button
+document.querySelector(".reset-option").onclick = function () {
+	// localStorage.clear()
+
+	localStorage.removeItem("bullets-option");
+	localStorage.removeItem("color-option");
+	localStorage.removeItem("tasks");
+
+	// Reload window
+	window.location.reload();
+}

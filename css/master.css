@@ -51,6 +51,7 @@ body {
 .setting-box .option-box {
   margin: 0;
   text-align: center;
+  /* background-color: #fff; */
 }
 .setting-box .top {
   margin-top: 75px;
@@ -110,8 +111,8 @@ body {
 .setting-box .option-box .colors-list li:nth-child(5) {
   background-color: #c90707;
 }
-.setting-box .random-background .yes,
-.setting-box .random-background .no {
+.setting-box .yes,
+.setting-box  .no {
   display: inline-block;
   width: 50px;
   background-color: #009688;
@@ -124,14 +125,75 @@ body {
   font-weight: bold;
   transition: var(--main-transition);
 }
-.setting-box .random-background .yes:hover,
-.setting-box .random-background .no:hover {
+.setting-box .yes:hover,
+.setting-box  .no:hover {
   opacity: 1;
 } 
-.setting-box .random-background span.active {
+.setting-box  span.active {
   opacity: 1;
 }
+.setting-box .reset-option {
+  width: calc(100% - 40px);
+  background-color: rgba(255, 0, 0, 0.555);
+  outline: none;
+  border: none;
+  margin: 50px 20px; 
+  cursor: pointer;
+  font-size: 18px;
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+}
 /* End setting box */
+/* Start Start Nav Bullets */ 
+nav {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 200;
+  width: 40px;
+}
+nav .bullet {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--main-color);
+  border-radius: 50%;
+  margin: 10px auto;
+  cursor: pointer;
+  position: relative;
+} 
+nav .bullet .tooltip {
+  position: absolute;
+  padding: 1px;
+  top: -2px;
+  width: 110px;
+  background-color: var(--main-color);
+  color: #fff;
+  right: 30px;
+  text-align: center;
+  cursor: default;
+  pointer-events: none;
+  display: none;
+}
+nav .bullet:hover .tooltip {
+  display: block;
+}
+nav .bullet .tooltip::after {
+  content: ' ';
+  position: absolute;
+  border-style: solid;
+  border-width: 5px;
+  border-color: transparent transparent transparent var(--main-color);
+  top: 50%;
+  transform: translateY(-50%);
+  right: -13px;
+  height: 0;
+  width: 0;
+
+}
+
+/* End Start Nav Bullets */ 
 /* Start Landing Page */
 .lading-page {
   position: relative;
@@ -379,6 +441,23 @@ body {
   padding-bottom: 50px;
   background-color: #eee;
 }
+.timeline  h2 {
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 30px;
+  margin: 0 0 60px;
+  position: relative;
+  width: fit-content;
+}
+.timeline h2::after {
+  content: ''; 
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  bottom: -15px;
+  left: 2px;
+  background-color: #000;
+} 
 .timeline .timeline-content {
   display: flex;
   flex-wrap: wrap;
@@ -458,4 +537,138 @@ body {
   width: 100%;
 }
 /* End time line */
+/* Start Features */
+.features {
+  padding-top: 80px;
+  padding-bottom: 80px;
+}
+.features h2 {
+  font-weight: bold;
+  color: var(--main-color);
+  font-size: 30px;
+  margin: 0 0 60px;
+  text-align: center;
+}
+.features .container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+.features .feat-box {
+  text-align: center;
+}
+.features .feat-box img {
+  width: 120px;
+}
+.features .feat-box h4 {
+  font-size: 22px;
+  margin: 10px 0 40px;
+  position: relative;
+}
+.features .feat-box h4::before {
+  content: ' ';
+  position: absolute;
+  width: 100px;
+  height: 1px;
+  background-color: var(--main-color);
+  left: 50%;
+  bottom: -20px;
+  transform: translateX(-50%);
+}
+.features .feat-box p {
+  line-height: 1.7;
+  margin: 0 auto;
+  color: #373535;
+}
+/* End Features */
+/* Start testimoials */ 
+.testimoials {
+  min-height: 600px;
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+.testimoials::after {
+  content: ' ';
+  position: absolute;
+  width: 50%;
+  top: 0;
+  left: 0;
+  height: 100%;
+ background-color: var(--main-color);
+  z-index: -1;
+}
+.testimoials::before {
+  content: ' ';
+  position: absolute;
+  width: 50%;
+  background-image: url(../image/04.jpg);
+  background-size: cover;
+  height: 100%;
+  right: 0;
+  top: 0;
+  z-index: -1;
+}
+.testimoials h2 {
+  font-weight: bold;
+  color: white;
+  font-size: 30px;
+  margin: 0 0 60px;
+  position: relative;
+  width: fit-content;
+}
+.testimoials h2::after {
+  content: ''; 
+  position: absolute;
+  width: 50%;
+  height: 3px;
+  bottom: -15px;
+  left: 0;
+  background-color: #000;
+} 
+.testimoials .content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+.testimoials .content .ts-box {
+  padding: 30px;
+  color: white;
+  background-color: #ffffff21;
+  border-radius: 6px;
+}
+.testimoials .content .ts-box > p  {
+  margin: 0 0 10px;
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: bold;
+}
+.testimoials .content .person-info {
+  display: flex;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+}
+.testimoials .content .person-info img {
+  width: 80px;
+  height: 80px;
+}
+.testimoials .content .person-info h4 {
+  margin: 0 0 5px;
+}
+.testimoials .content .person-info p {
+  margin: 0;
+}
+/* End testimoials */ 
+/* Start contact */
+.contact{
+  /* margin-top: -100px; */
+  min-height: 699px;
+  background-image: url(../image/Gemini_Generated_Image_n6v880n6v880n6v8.png);
+  background-size: cover;
+  padding-top: 60px;
+  padding-bottom: 60px;
+  position: relative;
+}
 
+/* End contact */
