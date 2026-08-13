@@ -666,9 +666,29 @@ nav .bullet .tooltip::after {
   min-height: 699px;
   background-image: url(../image/Gemini_Generated_Image_n6v880n6v880n6v8.png);
   background-size: cover;
-  padding-top: 60px;
-  padding-bottom: 60px;
+  padding-top: 80px;
+  padding-bottom: 80px;
   position: relative;
 }
-
+.contact::after {
+  content: '';
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(255, 255, 255, .6);
+}
+.contact .container {
+  position: relative;
+  z-index: 10;
+  color: white;
+}
+.contact h2 {
+  font-weight: bold;
+  font-size: 35px;
+  color: var(--main-color);
+  margin: 0 0 60px;
+  text-align: center;
+}
 /* End contact */
