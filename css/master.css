@@ -5,13 +5,13 @@
 }
 :root {
   --main-color: orange;
-  --main-transition: 0.5s;
+  --main-transition: 0.3s;
 }
 body {
   font-family: "Open Sans", sans-serif;
 }
 .container {
-  width: 1170px;
+  width: 100%;
   padding-left: 15px;
   padding-right: 15px;
   margin: auto;
@@ -59,7 +59,7 @@ body {
 .setting-box .option-box h4 {
   padding: 15px 30px;
   font-size: 19px;
-  color: var(--main-color);
+  color: black;
   font-weight: bold; 
   position: relative;
   text-transform: capitalize;
@@ -71,7 +71,7 @@ body {
   height: 2px;
   bottom: 0;
   left: 50%;
-  background-color: #fff;
+  background-color: #000;
   transform: translateX(-50%);
 }
 .setting-box .option-box .colors-list {
@@ -133,11 +133,11 @@ body {
   opacity: 1;
 }
 .setting-box .reset-option {
-  width: calc(100% - 40px);
+  width: calc(100% - 140px);
   background-color: rgba(255, 0, 0, 0.555);
   outline: none;
   border: none;
-  margin: 50px 20px; 
+  margin: 50px 70px;
   cursor: pointer;
   font-size: 18px;
   color: white;
@@ -190,9 +190,7 @@ nav .bullet .tooltip::after {
   right: -13px;
   height: 0;
   width: 0;
-
 }
-
 /* End Start Nav Bullets */ 
 /* Start Landing Page */
 .lading-page {
@@ -234,10 +232,16 @@ nav .bullet .tooltip::after {
 .lading-page .header-area .logo span {
   color: var(--main-color);
 }
-.lading-page .header-area .links {
+.links-container {
   width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+.lading-page .header-area .links {
   text-align: right;
   gap: 20px;
+  flex: 1;
 }
 .lading-page .header-area .links li {
   display: inline-block;
@@ -252,6 +256,18 @@ nav .bullet .tooltip::after {
 .lading-page .header-area .links  a.active {
   text-decoration: underline;
   color: var(--main-color);
+}
+.links-container .toggle-menu {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+.links-container .toggle-menu span {
+  display: block;
+  height: 3px;
+  background-color: #eee;
+  margin-bottom: 3.5px;
+  border-radius: 20px;
 }
 .lading-page .intoduction-text {
   width: 100%;
@@ -702,6 +718,8 @@ nav .bullet .tooltip::after {
 }
 .contact-us form .right {
   flex: 1;
+  display: flex;
+  flex-direction: column;
   
 }
 .contact-us form .left::after {
@@ -714,49 +732,89 @@ nav .bullet .tooltip::after {
   transform: translatey(-50%);
   background-color: var(--main-color);
 }
-.contact-us form  input,
+.contact-us form  input:not([type=submit]),
 .contact-us form  textarea {
   width: 80%;
   margin: 10px auto;
   padding: 20px;
   border: none;
-  background-image: url(../image/02.jpg);
-  background-position: center;
-  background-size: cover;
+  background-color: #ffffff69;
   border-radius: 10px;
   transition: var(--main-transition);
-  color: white;
+  /* color: white; */
+  box-shadow: 1.5px 1.5px 0 0  var(--main-color);
 }
 .contact-us form  textarea  {
-  height: 67%;
+  flex: 1;
+  resize: none;
 }
 .contact-us form  input::placeholder,
 .contact-us form  textarea::placeholder {
   /* color: var(--main-color); */
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
-  color: white;
+  color: var(--main-color);
 }
 /* Chrome, Safari, Edge, Opera لـ */
 .contact-us form input[type=number]::-webkit-outer-spin-button,
 .contact-us form input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
+/* دي انا بحذف ال 
+  sleaction
+  input number
+*/
 }
 .contact-us form  input:focus,
 .contact-us form  textarea:focus {
   outline: none;
 }
+/* Delete the placehoder Name */
 .contact-us form  input:focus::placeholder, 
 .contact-us form  textarea:focus::placeholder {
   color: transparent;
+  transition: var(--main-transition);
 }
 .contact-us form input[type=submit] {
-  width: 50%;
-  background-color: var(--main-color);
-  color: white;
-  font-size: 20px;
+  width: 15%;
+  color: var(--main-color);
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
+  margin: 5px auto;
+  padding: 12px 6px;
+  color: white;
+  background-color: var(--main-color);
+  border-radius: 30px;
+  outline: none;
+  border: none;
+  transition: var(--main-transition);
+}
+.contact-us form input[type=submit]:hover {
+  transform: translateY(-3px); /* يرتفع للأعلى قليلاً */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3); 
 }
 /* End contact */
+/* Start grid system */
+@media (min-width: 576px) { /*Small devices*/
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: 768px) { /*medium devices*/
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: 992px) { /*desktop*/
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: 1200px) { /*large screen*/
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/* Start grid system */
