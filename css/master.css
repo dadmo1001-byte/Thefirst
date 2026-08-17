@@ -661,34 +661,102 @@ nav .bullet .tooltip::after {
 }
 /* End testimoials */ 
 /* Start contact */
-.contact{
+.contact-us {
   /* margin-top: -100px; */
   min-height: 699px;
-  background-image: url(../image/Gemini_Generated_Image_n6v880n6v880n6v8.png);
-  background-size: cover;
+  background-color: #eee;
   padding-top: 80px;
   padding-bottom: 80px;
   position: relative;
 }
-.contact::after {
+/* .contact-us::after {
   content: '';
   width: 100%;
   height: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: rgba(255, 255, 255, .6);
-}
-.contact .container {
+  background-color: #00000079;
+} */
+.contact-us .container {
   position: relative;
   z-index: 10;
   color: white;
 }
-.contact h2 {
+.contact-us h2 {
   font-weight: bold;
   font-size: 35px;
   color: var(--main-color);
   margin: 0 0 60px;
   text-align: center;
+}
+.contact-us form {
+  display: flex;
+  text-align: center;
+}
+.contact-us form .left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.contact-us form .right {
+  flex: 1;
+  
+}
+.contact-us form .left::after {
+  position: absolute;
+  content: ' ';
+  width: 2px;
+  height: 50%;
+  right: -1px;
+  top: 50%;
+  transform: translatey(-50%);
+  background-color: var(--main-color);
+}
+.contact-us form  input,
+.contact-us form  textarea {
+  width: 80%;
+  margin: 10px auto;
+  padding: 20px;
+  border: none;
+  background-image: url(../image/02.jpg);
+  background-position: center;
+  background-size: cover;
+  border-radius: 10px;
+  transition: var(--main-transition);
+  color: white;
+}
+.contact-us form  textarea  {
+  height: 67%;
+}
+.contact-us form  input::placeholder,
+.contact-us form  textarea::placeholder {
+  /* color: var(--main-color); */
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+/* Chrome, Safari, Edge, Opera لـ */
+.contact-us form input[type=number]::-webkit-outer-spin-button,
+.contact-us form input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.contact-us form  input:focus,
+.contact-us form  textarea:focus {
+  outline: none;
+}
+.contact-us form  input:focus::placeholder, 
+.contact-us form  textarea:focus::placeholder {
+  color: transparent;
+}
+.contact-us form input[type=submit] {
+  width: 50%;
+  background-color: var(--main-color);
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
 }
 /* End contact */
