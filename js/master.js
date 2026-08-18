@@ -92,7 +92,7 @@ function randomIzeimage () {
 		// change background-image 
 		backgroundIntervale = setInterval (() => {
 			let randomNumber = Math.floor(Math.random() * arrImage.length);
-			ladingPage.style.backgroundImage = `url("../image/${arrImage[randomNumber]}")` ;
+			ladingPage.style.backgroundImage = `url("image/${arrImage[randomNumber]}")` ;
 		}, 2000);
 	}
 }
