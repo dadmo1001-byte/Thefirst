@@ -273,3 +273,30 @@ document.querySelector(".reset-option").onclick = function () {
 	// Reload window
 	window.location.reload();
 }
+
+// toggle menu
+let toggleMenu = document.querySelector(".toggle-menu");
+let tLinks = document.querySelector(".links")
+
+toggleMenu.onclick = function () {
+	// انا بضيف هنا كلاس اللي هيطلع السهم اللي في الصفحة
+	this.classList.toggle("menu-active")
+
+	// وهنا انا بضيف الكلاس اللي هيظهر القائمة
+	tLinks.classList.toggle('open')
+}
+console.log(tLinks);
+
+document.addEventListener('click', (e) => {
+	
+	if(!toggleMenu.contains(e.target) && !tLinks.contains(e.target)) {
+	
+		tLinks.classList.remove('open');
+		toggleMenu.classList.remove('menu-active');
+	}
+
+	/**
+	 * e.target: يحدد لك العنصر المباشر الذي تم النقر عليه.
+		contains(): تفحص هل هذا العنصر موجود داخل القائمة/الزر أم لا، والنفي ! يضمن تنفيذ الإغلاق فقط عند النقر خارج هذه العناصر.
+	 */
+})
